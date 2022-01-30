@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - "main"
+    paths-ignore:
+      - "Containerfile"
   pull_request:
     branches:
       - "main"
+    paths-ignore:
+      - "Containerfile"
 
 jobs:
   run-lint:
