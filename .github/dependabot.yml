@@ -7,7 +7,7 @@ updates:
       interval: "weekly"
       day: "friday"
       time: "00:00"
-      timezone: "Europe/Berlin"
+      timezone: ${{ secrets.USER_TIMEZONE }}
     labels:
       - "github-actions dependencies"
 
@@ -17,6 +17,6 @@ updates:
       interval: "weekly"
       day: "friday"
       time: "00:00"
-      timezone: "Europe/Berlin"
+      timezone: ${{ secrets.USER_TIMEZONE }}
     labels:
       - "docker dependencies"
