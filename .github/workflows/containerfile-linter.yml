@@ -23,7 +23,7 @@ jobs:
           cancel_others: true
           concurrent_skipping: never
 
-  lint:
+  run-lint:
     name: Hadolint Action
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +36,7 @@ jobs:
           dockerfile: Containerfile
 
   scan:
-    needs: lint
+    needs: run-lint
     name: Scan config files for vulnerabilities
     runs-on: ubuntu-latest
     container:
