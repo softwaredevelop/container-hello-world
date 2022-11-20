@@ -2,11 +2,11 @@
 name: Container Build & Push
 
 on:
-  workflow_run:
-    workflows: [Containerfile Linter]
-    types: [completed]
-    paths:
-      - "Containerfile"
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - "!Dockerfile"
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -24,7 +24,7 @@ jobs:
           concurrent_skipping: never
 
   docker:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Container Build and Push
     runs-on: ubuntu-latest
     steps:
