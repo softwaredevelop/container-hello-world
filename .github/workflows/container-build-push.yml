@@ -24,7 +24,6 @@ jobs:
           concurrent_skipping: never
 
   docker:
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Container Build and Push
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +43,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v3
         with:
-          file: ./Containerfile
+          file: ./Dockerfile
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPOSITORY }}:latest
